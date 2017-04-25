@@ -21,6 +21,7 @@ public class Start {
             actions.add(action);
         }
         List<Future<String>> results = executorService.invokeAll(actions);
+        executorService.shutdown();
         for(Future<String> future: results){
             System.out.println(future.get());
         }
